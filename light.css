@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Serif Display', serif;
+}
+
+body {
+    background-image: url("images/darklivingroom.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section h4 {
+    position: absolute;
+    top: 45%;
+    color: #fff;
+    font-size: 30px;
+    cursor: default;
+    text-shadow: none;
+    letter-spacing: normal;
+}
+
+section h3 {
+    top: 40%;
+    position: absolute;
+    color: #f0eadc;
+    font-size: 1000%;
+    text-shadow: 0 0 20px #f0eadc;
+    font-style: italic;
+
+    animation-name: bounce;
+    animation-duration: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+.switch {
+    margin: auto;
+    padding: 10px;
+    text-align: center
+}
+
+.switchboard {
+    position: absolute;
+    top: 57%;
+    left: 57%;
+    width: 40px;
+}
+
+.switchboard:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--x) var(--y), transparent 10%, rgba(0, 0, 0, 0.95) 20%);
+}
+
+.cake {
+    position: absolute;
+    top: 44%;
+    left: 35%;
+    width: 30%;
+    cursor: pointer;
+    filter: drop-shadow(20px 50px 100px #cccccc);
+    -webkit-filter: drop-shadow(20px 50px 100px rgb(241, 241, 159));
+}
+
+.cake:hover {
+    transform: scale(1.01);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-30px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-30px);
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    section h4 {
+        top: 40%;
+        font-size: 100%;
+        margin-top: 20px;
+
+
+    }
+
+    section h3 {
+        top: 40%;
+        font-size: 500%;
+        text-align: center;
+        animation: none;
+    }
+
+    .switchboard {
+        width: 10%;
+        top: 60%;
+        left: 70%;
+    }
+
+    .cake {
+        top: 40%;
+        left: -2%;
+        width: 400px;
+    }
+}

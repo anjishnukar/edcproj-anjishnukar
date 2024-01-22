@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Off!</title>
+    <link rel="stylesheet" type="text/css" href="light.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section id="instruction">
+        <h4 id="text">Switch the light on</h4>
+        <h3 id="nameplate"></h3>
+    </section>
+    <div class="switch">
+        <img id="switchboard" class="switchboard" src="images/switch-off-coloured.png">
+        <img id="cake" class="cake">
+    </div>
+    <div id="light" class="light"></div>
+    <script type="text/javascript">
+        var pos = document.documentElement;
+        pos.addEventListener('mousemove', e => {
+            pos.style.setProperty('--x', e.clientX + 'px')
+            pos.style.setProperty('--y', e.clientY + 'px')
+        })
+
+        var urlParams = new URLSearchParams(window.location.search);
+        var name = urlParams.get("name");
+
+        switchboard.addEventListener("click", function () {
+            switchboard.src = "images/switch-on-coloured.png";
+            switchboard.style.transform = "none";
+            switchboard.style.cursor = "default";
+            switchboard.style = "z-index: -5";
+            document.body.style.backgroundImage = "url(images/litlivingroom.jpg)";
+            light.style.background = "none";
+            text.textContent = "happy birthday";
+            nameplate.textContent = name;
+            cake.src = "images/cake.png"
+            text.style.textShadow = "0 0 20px #f0eadc";
+            text.style.color = "#f0eadc";
+            if (window.matchMedia("max-width: 600px").matches) {
+                text.style.fontSize = "1000%";
+            }
+            else {
+                text.style.fontSize = "50px";
+            }
+
+            text.style.transform = "translate(0,-100%)";
+        })
+        cake.addEventListener("click", function () {
+            cake.src = "images/cake-blown.png";
+            cake.style.transform = "none";
+            cake.style.cursor = "default";
+            cake.style.filter = "none";
+            nameplate.style.animationDuration = "2s";
+        })
+    </script>
+
+</body>
+
+</html>
